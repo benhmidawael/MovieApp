@@ -10,11 +10,9 @@ const MovieList = ({ search, movies, stars }) => {
   return (
     <>
       <div className='MainBox'>
-        {      //eslint-disable-next-line
-        }        {(stars != 0) ? (movies.filter((el) => el.rating === stars && el.name.toUpperCase().includes(search.toUpperCase()))
-          .map((el) => <MovieCard el={el} />)) : (movies.filter((el) => el.name.toUpperCase().includes(search.toUpperCase()))
-            .map((el) => <MovieCard el={el} />))}
-      </div>
+  {(parseInt(stars) > 0) ? (movies.filter((el) => el.rating === parseInt(stars) && el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />)) : (movies.filter((el) => el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />))}
+
+  </div>
 
     </>
   )

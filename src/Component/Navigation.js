@@ -10,21 +10,17 @@ import Modal from 'react-bootstrap/Modal';
 
 
 const Navigation = ({ setSearch, setStars, addMovie }) => {
-  const [newmovie, setNewmovie] = useState([
+  const [newmovie, setNewmovie] = useState(
     {
-      name: "k",
+      name: " ",
       posterurl: "",
       description: "",
       rating: 1,
-    }]);
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newmovie.name === '' || newmovie.description === '' || newmovie.posterurl === '' || newmovie.rating === '') {
-      alert('Please fill out all required fields.');
-    } else {
-    addMovie({ name: newmovie.name, description: newmovie.description, posterurl: newmovie.posterurl, rating: newmovie.rating });
-  }};
+  const handleSubmit = () => {
+      addMovie({ name: newmovie.name, description: newmovie.description, posterurl: newmovie.posterurl, rating: newmovie.rating });
+  };
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -65,9 +61,9 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
             <Form>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Movie Name" defaultValue="Movie Name" required onChange={(e) => (setNewmovie({ ...newmovie, name: e.target.value }))} />
+                <Form.Control type="text" placeholder="Movie Name" required onChange={(e) => (setNewmovie({ ...newmovie, name: e.target.value }))} />
               </Form.Group>
-              <Form.Group className="mb-3"  controlId="exampleForm.ControlInput1">
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="text" placeholder="Movie Description" required onChange={(e) => (setNewmovie({ ...newmovie, description: e.target.value }))} />
               </Form.Group>
@@ -78,7 +74,7 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
 
               <Form.Label>Rating</Form.Label>
               <Form.Select aria-label="Default select example" required onChange={(e) => (setNewmovie({ ...newmovie, rating: e.target.value }))}>
-                <option selected value="1">1</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">5</option>
@@ -87,7 +83,8 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleSubmit}>
+            <Button variant="primary"
+              onClick={() => {handleSubmit();handleClose();}}>
               Add Movie
             </Button>
             <Button variant="secondary" onClick={handleClose}>
