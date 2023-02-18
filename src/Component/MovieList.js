@@ -10,7 +10,7 @@ const MovieList = ({ search, movies, stars }) => {
   return (
     <>
       <div className='MainBox'>
-  {(parseInt(stars) > 0) ? (movies.filter((el) => el.rating === parseInt(stars) && el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />)) : (movies.filter((el) => el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />))}
+  {(parseInt(stars) > 0) ? (movies.filter((el) => el.rating === parseInt(stars) && el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />).reverse()) : (movies.filter((el) => el.name.toUpperCase().includes(search.toUpperCase())).map((el) => <MovieCard el={el} />).reverse())}
 
   </div>
 

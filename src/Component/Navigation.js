@@ -13,13 +13,13 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
   const [newmovie, setNewmovie] = useState(
     {
       name: " ",
-      posterurl: "",
+      trailerurl: "",
       description: "",
       rating: 1,
     });
 
   const handleSubmit = () => {
-      addMovie({ name: newmovie.name, description: newmovie.description, posterurl: newmovie.posterurl, rating: newmovie.rating });
+    addMovie({ name: newmovie.name, description: newmovie.description, trailerurl: newmovie.trailerurl, rating: newmovie.rating });
   };
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,9 +28,9 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
     <>
       <Navbar bg="dark" variant="dark" style={{ justifyContent: "space-around", position: 'sticky', top: '0', zIndex: "999" }}>
         <Container style={{ width: "40%" }}>
-          <Navbar.Brand href="#"><img style={{ marginLeft: "100px", width: "110px" }} src="./logo.png" alt='logo' /></Navbar.Brand>
+          <Navbar.Brand href="/"><img style={{ marginLeft: "100px", width: "110px" }} src="./logo.png" alt='logo' /></Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#">My List</Nav.Link>
             <Nav.Link href="#">Latest</Nav.Link>
           </Nav>
@@ -68,8 +68,8 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
                 <Form.Control type="text" placeholder="Movie Description" required onChange={(e) => (setNewmovie({ ...newmovie, description: e.target.value }))} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Poster</Form.Label>
-                <Form.Control type="text" placeholder="Movie Poster" required onChange={(e) => (setNewmovie({ ...newmovie, posterurl: e.target.value }))} />
+                <Form.Label>Trailer</Form.Label>
+                <Form.Control type="text" placeholder="Movie Trailer" required onChange={(e) => (setNewmovie({ ...newmovie, trailerurl: e.target.value }))} />
               </Form.Group>
 
               <Form.Label>Rating</Form.Label>
@@ -84,7 +84,7 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary"
-              onClick={() => {handleSubmit();handleClose();}}>
+              onClick={() => { handleSubmit(); handleClose(); }}>
               Add Movie
             </Button>
             <Button variant="secondary" onClick={handleClose}>
