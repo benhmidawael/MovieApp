@@ -13,7 +13,6 @@ const MovieCard = ({ el }) => {
             className="miniplayer"
             width={"100%"}
             height={"100%"}
-            controls={true}
             loop={true}
             url={el.trailerurl}
           />
