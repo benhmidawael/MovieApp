@@ -43,7 +43,7 @@
 }
 
 .MovieBox img {
-    height: 150px;
+    height: 90%;
     transition: all .2s ease-in-out;
 
 }
@@ -73,15 +73,16 @@ p {
     border-radius: 50px;
     overflow: hidden;
 }
-.vdcontainer{
-width: 280px;
-height: 200px;
+.postercontainer{
+width: 290px;
+height: 400px;
 }
 
-.miniplayer {
+
+/* .miniplayer {
     transition: all .2s ease-in-out;
 }
 
 .miniplayer:hover {
     transform: scale(1.1);
-}
+} */
