@@ -9,13 +9,15 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
+
 const Navigation = ({ setSearch, setStars, addMovie }) => {
+
   const [newmovie, setNewmovie] = useState(
     {
       name: " ",
       posterurl: "",
       description: "",
-      rating: 1,
+      rating: 0,
     });
 
   const handleSubmit = () => {
@@ -80,6 +82,7 @@ const Navigation = ({ setSearch, setStars, addMovie }) => {
                 <option value="4">5</option>
                 <option value="5">5</option>
               </Form.Select>
+
             </Form>
           </Modal.Body>
           <Modal.Footer>
